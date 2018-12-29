@@ -1,0 +1,36 @@
+{{!-- xt --}}
+<script>
+function goBack() {
+    window.history.back().back();
+}
+function XSS(element){
+    element.value=filterXSS(element.value);
+}
+</script>
+
+<h1 id="the-heading">Edit your account!</h1><br>
+<div class = "row">
+  <div class = "col-sm-12">
+    <form id = "static-form"
+     action='http://localhost:3000/hannibal/user/private/{{user_id}}' 
+     method='post' 
+     encType="multipart/form-data">
+
+      
+      <div class = "form-group">
+        <label for="user_pass">If you want to change your password, please type the new one.</label><br>
+        <label for="user_pass">Otherwise, it won't be changed.</label><br>
+        <input type="password" name="user_pass" id="user_pass" placeholder="Password" onchange="XSS(this)"><br><br><br>
+      </div>
+
+      
+      <div class = "form-group">
+        <label for="contact_email">This is your present email, retype if you want to change it.</label><br>
+        <input type="text" name="contact_email" id="contact_email" placeholder="Email"  onchange="XSS(this)"><br><br>
+      </div>
+    <button type="submit" id="private" name="private" class="btn btn-success" >Edit</button><button type="button" class="btn btn-danger" onclick="goBack()">Back</button>
+
+    <input type="hidden" id="user_id" value={{user_id}}>
+    </form>
+  </div>
+</div> 

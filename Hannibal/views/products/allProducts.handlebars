@@ -1,0 +1,19 @@
+<script>
+function goBack() {
+    window.location.assign("http://localhost:3000/hannibal");
+}
+</script>
+<h1 id="the-heading">Your posted items</h1>
+<div class="row">
+    <div class="col-sm-12">
+    	<button type="button" class="btn btn-danger" onclick="goBack()">Back</button>
+    	<a class="btn btn-info" href="http://localhost:3000/hannibal/upload" role="button">Upload your product!</a><br><br>
+			<ul class="list-group" style="list-style-type:none">
+				{{#each products}}
+				<li>
+					<a class="list-group-item list-group-item-action" href="http://localhost:3000/hannibal/product/postItems/{{product_id}}">{{name}}</a>
+				</li>
+				{{/each}}
+			</ul>
+	</div>
+</div>

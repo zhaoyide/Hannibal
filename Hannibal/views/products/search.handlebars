@@ -1,0 +1,38 @@
+<script>
+function goBack() {
+    window.location.assign("http://localhost:3000/hannibal");
+}
+</script>
+
+<h1 id="the-heading"> Search Results </h1>
+<div class="row">
+    <div class="col-sm-12">
+    	<button type="button" class="btn btn-danger" onclick="goBack()">Back</button>
+        <div class="form-group">
+            {{#each category_products}}
+                {{#each IdandNames}}
+                    <div class = "grids">
+                    <div class = "grid_pics">
+                    <a href="http://localhost:3000/hannibal/product/{{product_id}}">
+                    <img src='{{product_pic}}' width="270" height="200" alt="Smiley face">
+                    </a>
+                    </div>
+                    <span class = "names">
+                    <a class = "names" href="http://localhost:3000/hannibal/product/{{product_id}}">
+                    {{product_name}}
+                    </a>
+                    </span>
+                    </div>
+                {{/each}}
+            {{/each}}
+        </div>
+        {{#if error }}
+            <div class="form-group">
+            <div class="alert alert-danger">
+            {{ error }}
+            </div>
+            </div>
+        {{/if}}
+	</div>
+</div>
+

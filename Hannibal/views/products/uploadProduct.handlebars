@@ -1,0 +1,65 @@
+<script>
+function goBack() {
+    window.history.back().back();
+}
+
+function XSS(element){
+    element.value=filterXSS(element.value);
+}
+</script>
+
+<h1 id="the-heading">Upload your product!</h1>
+<div class = "row">
+  <div class = "col-sm-12">
+    {{#if hasErrors}}
+        <div class="alert alert-danger" role="alert">
+          Server is busy, please try again later!
+        </div>
+    {{/if}}
+    <form id = "static-form"
+     action='http://localhost:3000/hannibal/product' 
+     method='post' 
+     encType="multipart/form-data">
+      <div class = "form-group">
+        <label for="name">Please type product's name: </label><br>
+        <input type="text" name="name" id="name" placeholder="Product's name" required onchange="XSS(this)"><br><br>
+      </div>
+
+      <div class = "form-group">
+        <label for="price">Please type product's price: </label><br>
+        <input type="number" name="price" id="price" placeholder="Product's price" step="0.01" required onchange="XSS(this)"><br><br>
+      </div>
+          
+      <div class = "form-group">
+        <label for="description">Please type product's description: </label><br>
+        <textarea style="width: 500px; height: 150px" name="description" id="description" placeholder="Product's description" onchange="XSS(this)"></textarea><br><br>
+      </div>
+      
+      <div class = "form-group">
+        <label for="contact_email">This is your default email: </label><br>
+        <input type="email" name="contact_email" id="contact_email" onchange="XSS(this)"><br><br>
+      </div>
+
+
+      
+      <div class = "form-group">
+        <label for="category_id">Please choose the category: </label><br>
+        <select class="form-control" id="category_id" name="category_id" onchange="XSS(this)">
+          
+        </select>
+      </div>
+
+      <input type="hidden" id="user_id" name = "user_id" value={{user_id}} onchange="XSS(this)">
+      
+      <div class = "form-group">
+        <label for="pics">Please upload a picture: </label><br>
+        <input type="file" name="pics" id="pics" required accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"> <br><br>
+      </div>
+
+        <input type="submit" class="btn btn-success" value='Upload!' /><button type="button" class="btn btn-danger" onclick="goBack()">Back</button>
+      
+    </form>    
+
+  </div>
+</div> 
+

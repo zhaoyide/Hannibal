@@ -1,0 +1,148 @@
+#info_pre{
+  font-family: Helvetica Neue; 
+  font-size: 14px; 
+  font-weight:normal; 
+  white-space:pre-wrap; 
+  word-wrap:break-word;
+}
+
+#s_pic{
+  max-width:600px;
+  height:auto;
+}
+
+#s_pic1{
+  max-width:500px;
+  height:auto;
+}
+
+#s_pic1:hover{
+  max-width:800px;
+  height:auto;
+}
+
+
+#error_username{
+  display: inline-block; 
+  color:red;
+}
+
+#sentence{
+  font-size:17px;
+  font-style:italic;
+}
+
+#dropdown{
+  float:right;
+}
+#modal-toggle{
+  float:right;
+}
+
+.login{
+  margin-left: 5rem;
+}
+
+.message{
+  color: red;
+}
+
+ul.navi{
+  list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.navi li{
+  float:left;
+}
+
+ul.navi li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;  
+}
+
+ul.navi li a:hover {
+  background-color: #111;
+}
+
+div.categoryBar{
+   font-style: normal;
+   font-size:30px;
+   margin: 8px 0px 0px;
+}
+
+div.CateProdOuterBox{
+    margin:0px;
+    height:310px;
+    position: relative;
+    
+}
+
+div.categoryProducts{
+    margin:0px 30px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap; 
+}
+
+div.grids{
+  height:270px;
+  width: 270px;
+  margin:10px 20px 5px 5px;
+  display:inline-block;
+}
+
+div.names{
+  position: relative;
+  bottom: 0;
+  left:0;
+  font-size: 23px;
+  color: black;
+  overflow: hidden;
+  width: 270px;
+  height: 30px;
+}
+
+div.grid_pics{
+  height: 200px;
+  width: 270px;
+  margin-bottom: 20px;
+  background-color: white; 
+}
+
+a {
+  color: black;
+}
+
+.scroll-btn{
+  top:80px;
+  position: absolute;
+  opacity: 0.6;
+  height:70px;
+  color: black;
+  background-image: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonGatewayAuiAssets-gw_sprite_desktop_hires-4c97ad6…._V2_.png);
+  background-position: -14px 0;
+}
+
+.scroll-btn:hover{
+   opacity: 1.0;
+   cursor: pointer;
+}
+
+.button-left{
+  left:0;
+  visibility: hidden;
+
+}
+
+.button-right{
+  right:0;
+}
+

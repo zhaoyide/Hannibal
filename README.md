@@ -1,6 +1,3 @@
-Section: CS546-WS
-Group name: Hannibal
-Group members: Yanyan Jiang, Tianyi Wang, Tong Xue, Yide Zhao, Hang Zhou
 Project name: Hannibal used goods trading information platform
 
 Instruction:

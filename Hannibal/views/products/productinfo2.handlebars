@@ -1,0 +1,30 @@
+{{#if hasErrors}}
+{{else}}
+<button type="button" class="btn btn-danger" onclick="goBack()">Back</button>
+{{/if}}
+<script>
+function goBack() {
+    window.history.back();
+}
+function goHome() {
+       window.location.assign("http://localhost:3000/hannibal");
+}
+</script>
+<h1 id="the-heading">{{product.name}}</h1>
+<div class="row">
+    <div class="col-sm-12">	
+     {{#if hasErrors}}
+        <div class="alert alert-danger" role="alert">
+          {{error}}
+        </div>
+        <button type="button" class="btn btn-danger" onclick="goHome()">Back</button>
+      {{else}}	
+        <pre class="list-group-item" id="info_pre"><strong>description:</strong> <br>{{product.description}}</pre>  
+      	<ul class="list-group list-group-flush">
+    			<li class="list-group-item"><strong>price:</strong> {{product.price}}</li>
+    			<li class="list-group-item"><strong>contact_email:</strong> {{product.contact_email}}</li>
+    			<li class="list-group-item"><img src="{{product.pics}}" id="s_pic1" alt="Smiley face"></li>
+  		  </ul>
+      {{/if}}
+	</div>
+</div>

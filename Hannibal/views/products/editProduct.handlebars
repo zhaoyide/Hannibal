@@ -1,0 +1,72 @@
+<script>
+   function goBack() {
+       window.location.assign("http://localhost:3000/hannibal/postItems/"+$("#user_id").val());
+   }
+   function goHome() {
+       window.location.assign("http://localhost:3000/hannibal");
+   }
+   function encodeImagetoBase64(element) {
+        var file = element.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          $(".pic_b").val(reader.result);
+        }
+        reader.readAsDataURL(file);
+   }
+</script>
+
+<h1 id="the-heading">Edit your '{{product.name}}'</h1>
+<div class = "row">
+  <div class = "col-sm-12">
+    {{#if hasErrors}}
+        <div class="alert alert-danger" role="alert">
+          {{error}}
+        </div>
+        <button type="button" class="btn btn-danger" onclick="goHome()">Back</button>
+    {{else}}
+        <form id = "static-form" 
+         encType="multipart/form-data">
+          <div class = "form-group">
+            <label for="name">Change product's name: </label><br>
+            <input type="text" name="name" id="name" value='{{product.name}}' required><br><br>
+          </div>
+
+          <div class = "form-group">
+            <label for="price">Change product's price: </label><br>
+            <input type="number" name="price" id="price" value={{product.price}} step="0.01" required><br><br>
+          </div>
+              
+          <div class = "form-group">
+            <label for="description">Edit product's description: </label><br>
+            <textarea style="width: 500px; height: 150px" name="description" id="description">{{product.description}}</textarea><br><br>
+          </div>
+          
+          <div class = "form-group">
+            <label for="contact_email">Edit your email: </label><br>
+            <input type="email" name="contact_email" id="contact_email" value={{product.contact_email}}><br><br>
+          </div>
+
+          <div class = "form-group">
+            <label for="category_id">Please choose the category again: </label><br>
+            <select class="form-control" id="category_id" name="category_id">
+              <option value={{product.category_id}} selected id="selected">&nbsp;</option>
+            </select>
+          </div>
+
+          <input type="hidden" id="user_id" name = "user_id" value={{user_id}}>
+          
+          <div class = "form-group">
+            <label for="pics">Please upload a picture again if you want: </label><br>
+            <input type="file" name="pics" id="pics" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="encodeImagetoBase64(this)"> <br><br>
+            <img src="{{product.pics}}" id="s_pic" alt="Smiley face">
+          </div>
+
+            <input type="submit" id="submit" class="btn btn-success" value='Upload!'><button type="button" class="btn btn-danger" onclick="goBack()">Back</button>
+          
+        </form>    
+        <input type="hidden" id="product_id" name = "product_id" value={{product_id}}>
+        <input type="hidden" id="pic_b" class="pic_b" name = "pic_b">
+    {{/if}}
+  </div>
+</div> 
+

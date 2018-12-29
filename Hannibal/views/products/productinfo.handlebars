@@ -1,0 +1,35 @@
+{{#if hasErrors}}
+{{else}}
+<button type="button" class="btn btn-danger" onclick="goBack()">Back</button>
+{{/if}}
+<script>
+function goBack() {
+    window.history.back();
+}
+function goHome() {
+       window.location.assign("http://localhost:3000/hannibal");
+}
+</script>
+<a class="btn btn-warning" href="/hannibal/product/editForm/{{product.product_id}}">Edit</a> 
+<button id="delete" class="btn btn-info">delete </button>
+<h1 id="the-heading">Your posted items '{{product.name}}'</h1>
+<div class="row">
+    <div class="col-sm-12">		
+     {{#if hasErrors}}
+        <div class="alert alert-danger" role="alert">
+          {{error}}
+        </div>
+        <button type="button" class="btn btn-danger" onclick="goHome()">Back</button>
+      {{else}}
+      	
+    			<p class="list-group-item"><strong>category: </strong>{{product.category_id}}</p>
+    			<p class="list-group-item"><strong>price: </strong>{{product.price}}</p>
+    			<pre class="list-group-item" id="info_pre"><strong>description: </strong><br>{{product.description}}</pre>
+    			<p class="list-group-item"><strong>contact_email:</strong> {{product.contact_email}}</p>
+    			<p class="list-group-item"><img src="{{product.pics}}" id="s_pic" alt="Smiley face"></p>
+    			<input type="hidden" id="product_id" value={{product.product_id}}>
+          <input type="hidden" id="user_id" value={{user_id}}>
+  		  
+    	{{/if}}
+	</div>
+</div>

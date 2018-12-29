@@ -1,0 +1,31 @@
+<h1 id="the-heading">Create your amazing account!</h1>
+<div class = "row">
+  <div class = "col-sm-12">
+    <form id = "static-form" 
+     action='http://localhost:3000/hannibal/user' 
+     method='post' 
+     encType="multipart/form-data">
+      <div class = "form-group">
+        <label for="user_name">Please type username: </label><br>
+        <input type="text" name="user_name" id="user_name" placeholder="Username" required/>
+        {{#if message}}
+          <div id="error_username">{{message}}</div>
+        {{/if}}<br><br>
+      </div>
+      
+      <div class = "form-group">
+        <label for="user_pass">Please type password: </label><br>
+        <input type="password" name="user_pass" id="user_pass" placeholder="Password" required/><br><br>
+      </div>
+      
+      <div class = "form-group">
+        <label for="contact_email">Please type email: </label><br>
+        <input type="email" name="contact_email" id="contact_email" placeholder="Email" required/><br><br>
+      </div>
+
+      <input type="submit" class="btn btn-success" value='Sign Up!' /> <a class="btn btn-danger" href="http://localhost:3000/hannibal" role="button">Go Shopping</a>
+    </form>    
+
+  </div>
+</div> 
+
