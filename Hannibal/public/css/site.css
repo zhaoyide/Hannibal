@@ -125,10 +125,8 @@ a {
   top:80px;
   position: absolute;
   opacity: 0.6;
-  height:70px;
-  color: black;
-  background-image: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonGatewayAuiAssets-gw_sprite_desktop_hires-4c97ad6…._V2_.png);
-  background-position: -14px 0;
+  height:80px;
+  width: 30px;
 }
 
 .scroll-btn:hover{
@@ -139,10 +137,14 @@ a {
 .button-left{
   left:0;
   visibility: hidden;
-
+  background-size: 60px 80px;
+  background-image: url("http://localhost:3000/hannibal/pics/LRbutton.png");
 }
 
 .button-right{
   right:0;
+  background-size: 60px 80px;
+  background-position: right center;
+  background-image: url("http://localhost:3000/hannibal/pics/LRbutton.png");
 }
 

@@ -13,8 +13,8 @@
 	  </ul>
 	</div>
 {{else}}
-	 <button type="button" class="btn btn-primary" data-toggle="modal" id="modal-toggle" data-target=".login-modal">Login</button>
-  <div class="modal login-modal" tabindex="-1" role="dialog" aria-labelledby="modal-toggle">
+	 <button type="button" class="btn btn-primary" data-toggle="modal" id="modal-toggle" data-target="#login-modal">Login/SignUp</button>
+  <div class="modal" id="login-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="modal-toggle">
    <div class="modal-dialog" role="document">
     <div class="modal-content">
      <div class="modal-header">
@@ -23,13 +23,13 @@
       <h2 class="modal-title" id="myModalLabel">Hannibal Login</h2>
      </div>
 
-
-     <div class="modal=body">
+    <form>
+     <div class="modal-body">
             
       <div class = "form-group login">
         <br><br>
-        <label for="user_name">Username:   </label>
-        <input type="text" name="user_name" id="user_name" required/>
+        <label for="user_name">Account: &nbsp</label>
+        <input type="text" name="user_name" id="user_name" required placeholder="Account" />
         
           <div class="message"></div>
         <br><br>
@@ -37,7 +37,7 @@
       
       <div class = "form-group login">
         <label for="user_pass">Password:   </label>
-        <input type="password" name="user_pass" id="user_pass"required/><br><br>
+        <input type="password" name="user_pass" id="user_pass" required placeholder="Password"/><br><br>
       </div>
 
                  
@@ -47,7 +47,7 @@
       <a class="btn btn-info" href="http://localhost:3000/hannibal/signup" role="button">Sign Up</a>
       <input type="submit" id="submit" class="btn btn-success" value='Sign In' />
      </div>
-
+    </form>
     </div>
    </div>
   </div>
@@ -66,14 +66,15 @@
     <form class="key-form" method="post">
       <div class="form-group">
        <select class="form-control" id="search" name="search" style="width:100px;height:40px;float:left;" >
-          <option value='all'> all </option> 
+          <option value='all'> All </option> 
           {{#each category_products}}
           <option value='{{category_name}}'>{{category_name}}</option> 
           {{/each}}
         </select>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" name="keyword" id="keyword" value = "{{keyword}}" style=" width:500px;height:40px;float:left">
+        <input type="text" class="form-control" name="keyword" id="keyword" placeholder = "Seach for anything"
+        value = "{{keyword}}" style=" width:500px;height:40px;float:left">
         <button type="submit" class="btn btn-default" style="height:40px;float:left"> Search </button>
       </div>
     </form>
@@ -93,7 +94,8 @@
     </div>
     
     <div class = "CateProdOuterBox">
-  <button class="scroll-btn button-left">&larr;</button>   
+     <button class="scroll-btn button-left">
+     </button>   
     <div class = "categoryProducts">
  
     {{#each IdandNames}}
@@ -112,7 +114,8 @@
   {{/each}}
  
     </div>
-     <button class="scroll-btn button-right">&rarr;</button>
+     <button class="scroll-btn button-right">
+     </button>
   </div>
   {{/each}}
 </article>
