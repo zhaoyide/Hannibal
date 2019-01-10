@@ -1,7 +1,7 @@
 Project name: Hannibal consumer-to-consumer and business-to-consumer trade Website
 
 Instruction:
-1. run ’npm install‘ to install all libraries.
+1. run ’npm install‘ to install all libraries.And download mongoDB from it's official website.
 
 2. run 'npm run seed', and it will automatically creat 5 categories for used goods and also a user account. The username is 'test' and password is '123'. Additionally, it uploads a used switch game named 'zelda legend' in the name of this test account.
 
